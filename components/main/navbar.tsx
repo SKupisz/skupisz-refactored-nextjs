@@ -10,7 +10,7 @@ const Navbar:React.FC = () => {
     const [isOpened, toggleIsOpened] = useState<boolean>(false);
 
     return <NavbarContainer layout initial={{
-        height: "fit-content"
+        height: isBiggerThanTablet ? "fit-content" : "10vh"
     }} animate={{
         height: isBiggerThanTablet ? "fit-content" : isOpened ? ["10vh","100vh"] : ["100vh","10vh"]
     }}>

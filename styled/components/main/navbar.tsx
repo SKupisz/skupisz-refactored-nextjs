@@ -8,7 +8,6 @@ interface NavbarSectionInterface{
 export const NavbarContainer = styled(motion.nav)`
     width: 100%;
     padding: 5px 0px;
-    height: fit-content;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -23,7 +22,6 @@ export const NavbarContainer = styled(motion.nav)`
     @media screen and (min-width: 768px){
         flex-direction: row;
         justify-content: space-evenly;
-        height: fit-content;
     }
 `;
 
