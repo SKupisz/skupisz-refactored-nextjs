@@ -7,8 +7,8 @@ import { ContentContainer, DarkTheme, GlobalStyles } from 'styled/main'
 export default function App({ Component, pageProps }: AppProps) {
   return <ThemeProvider theme={DarkTheme}>
     <GlobalStyles />
+    <Navbar />
     <ContentContainer className="block-center">
-      <Navbar />
       <Component {...pageProps} />
     </ContentContainer>
   </ThemeProvider>

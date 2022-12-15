@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 interface NavbarSectionInterface{
-    flexDirection: string
+    flexdirection: string
 }
 
 export const NavbarContainer = styled(motion.nav)`
@@ -18,6 +18,7 @@ export const NavbarContainer = styled(motion.nav)`
     background: ${(props) => props.theme.navbarTheme};
     font-family: ${(props) => props.theme.fonts.regular};
     color: ${(props) => props.theme.colors.regular};
+    z-index: 3;
 
     @media screen and (min-width: 768px){
         flex-direction: row;
@@ -37,7 +38,7 @@ export const NavbarSection = styled(motion.div)<NavbarSectionInterface>`
     @media screen and (min-width: 768px){
         width: calc(50% - 20px);
         margin: 0px;
-        flex-direction: ${(props) => props.flexDirection};
+        flex-direction: ${(props) => props.flexdirection};
     }
 `;
 
@@ -51,7 +52,7 @@ export const NavbarElem = styled.div`
     font-size: 1.25em;
     letter-spacing: 0.04em;
     cursor: pointer;
-    transition: all 0.4s;
+    transition: filter 0.4s;
 
     &:hover{
         filter: brightness(70%);
@@ -73,7 +74,7 @@ export const NavbarClosingElem = styled.div`
     font-size: 2em;
     letter-spacing: 0.04em;
     cursor: pointer;
-    transition: all 0.4s;
+    transition: filter 0.4s;
     border-radius: 20px;
 
     &:hover{
