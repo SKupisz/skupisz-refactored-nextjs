@@ -60,10 +60,10 @@ export default function Home() {
           Who am I?
         </WelcomeDescriptionHeader>
         <WelcomeDescriptionContent className="block-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt dicta corrupti officia itaque est adipisci ratione commodi illum et nemo facere cupiditate sapiente necessitatibus, fugit eveniet eum totam nisi.
+          My name is Szymon Kupisz. I'm studying Computer Science and Information Systems at the Faculty of Mathematics and Information Sciences of the Warsaw University of Technology. I'm also a vice-president of the Student IT Research group of Warsaw University of Technology, which is KNI, and a president of it's flag product, the Sparkledge application.
         </WelcomeDescriptionContent>
         <WelcomeDescriptionContent className="block-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt dicta corrupti officia itaque est adipisci ratione commodi illum et nemo facere cupiditate sapiente necessitatibus, fugit eveniet eum totam nisi.
+          Since I can remember, my life has been strongly bonded with programming. I started learning its concepts and wonders when I was 9 years old. Since that time, firstly with the help of my father, and then by myself, I've gone into the endless journey through the world of programming.
         </WelcomeDescriptionContent>
       </WelcomePageSegment>
     </div>

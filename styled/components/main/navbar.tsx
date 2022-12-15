@@ -35,6 +35,11 @@ export const NavbarSection = styled(motion.div)<NavbarSectionInterface>`
     text-align: center;
     margin: 0px auto;
 
+    & > a {
+        color: inherit;
+        text-decoration: none;
+    }
+
     @media screen and (min-width: 768px){
         width: calc(50% - 20px);
         margin: 0px;

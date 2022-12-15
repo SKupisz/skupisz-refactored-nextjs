@@ -6,6 +6,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import { useMediaQuery } from "@mui/material";
 
 import { NavbarClosingElem, NavbarContainer, NavbarElem, NavbarSection } from "styled/components/main/navbar";
+import Link from "next/link";
 
 const Navbar:React.FC = () => {
 
@@ -27,12 +28,16 @@ const Navbar:React.FC = () => {
         }} animate={{
             height: isBiggerThanTablet ? "fit-content" : isOpened ? ["10vh","30vh"] : ["30vh","10vh"]
         }}>
-            <NavbarElem>
-                Main
-            </NavbarElem>
-            <NavbarElem>
-                Portfolio
-            </NavbarElem>
+            <Link href="/">
+                <NavbarElem>
+                    Main
+                </NavbarElem>
+            </Link>
+            <Link href="/portfolio">
+                <NavbarElem>
+                    Portfolio
+                </NavbarElem>
+            </Link>
         </NavbarSection>
         <NavbarSection flexdirection="row-reverse" layout initial={{
             height: "0vh",
@@ -40,12 +45,16 @@ const Navbar:React.FC = () => {
         }} animate={{
             height: isBiggerThanTablet ? "fit-content" : isOpened ? ["10vh","30vh"] : ["30vh","10vh"]
         }}>
-            <NavbarElem>
-                Contact
-            </NavbarElem>
-            <NavbarElem>
-                Blog
-            </NavbarElem>
+            <Link href="/contact">
+                <NavbarElem>
+                    Contact
+                </NavbarElem>
+            </Link>
+            <Link href="/blog">
+                <NavbarElem>
+                    Blog
+                </NavbarElem>
+            </Link>
         </NavbarSection>
         {
             !isBiggerThanTablet ? <NavbarClosingElem onClick={() => toggleIsOpened(!isOpened)}>
