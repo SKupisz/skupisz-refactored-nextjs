@@ -12,6 +12,8 @@ export const LightTheme = {
     colors: {
         regular: "#82C3EC",
         regularDarker: "#82C3EC",
+        consoleBackground: "rgba(90,90,90,.9)",
+        consoleColor: "#1C6348",
     },
     textShadow: "3px 3px 4px rgba(0,0,0,.15)",
 };
@@ -26,7 +28,9 @@ export const DarkTheme = {
     },
     colors: {
         regular: "#82C3EC",
-        regularDarker: "#82C3EC",
+        regularDarker: "#207A9A",
+        consoleBackground: "rgba(90,90,90,.2)",
+        consoleColor: "#05AB45",
     },
     textShadow: "3px 3px 4px rgba(0,0,0,.15)",
 };

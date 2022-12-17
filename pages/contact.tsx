@@ -28,7 +28,7 @@ const Contact:NextPage = () => {
                 delay: 0.3
             }}>
                 <ContactWaysSingleWay>
-                    <a href="mailto:granarax@protonmail.com" target="_blank">
+                    <a href="mailto:granarax@protonmail.com" target="_blank" rel="noreferrer">
                         <MailIcon style={{
                             color: "inherit",
                             fontSize: "inherit"
@@ -36,7 +36,7 @@ const Contact:NextPage = () => {
                     </a>
                 </ContactWaysSingleWay>
                 <ContactWaysSingleWay>
-                    <a href="https://github.com/SKupisz" target="_blank">
+                    <a href="https://github.com/SKupisz" target="_blank" rel="noreferrer">
                         <GitHubIcon style={{
                             color: "inherit",
                             fontSize: "inherit"
@@ -44,7 +44,7 @@ const Contact:NextPage = () => {
                     </a>
                 </ContactWaysSingleWay>
                 <ContactWaysSingleWay>
-                    <a href="https://twitter.com/granarax" target="_blank">
+                    <a href="https://twitter.com/granarax" target="_blank" rel="noreferrer">
                         <TwitterIcon style={{
                             color: "inherit",
                             fontSize: "inherit"
@@ -52,7 +52,7 @@ const Contact:NextPage = () => {
                     </a>
                 </ContactWaysSingleWay>
                 <ContactWaysSingleWay>
-                    <a href="https://www.linkedin.com/in/szymon-kupisz-0a8a91193/" target="_blank">
+                    <a href="https://www.linkedin.com/in/szymon-kupisz-0a8a91193/" target="_blank" rel="noreferrer">
                         <LinkedInIcon style={{
                             color: "inherit",
                             fontSize: "inherit"
