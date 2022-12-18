@@ -1,4 +1,4 @@
-import { Commands } from "data/portfolio";
+import { Commands, helpCommands } from "data/portfolio";
 
 export const checkIfTheCommandExists = (
     checkedCommand: string
@@ -16,10 +16,12 @@ export const processTheLatestCommand = (
 ):void => {
     if(checkIfTheCommandExists(command)){
         const commandName:string = command.split(" ")[0];
-        console.log(commandName);
         switch(commandName){
+            case "help": 
+                const operand = [...commandsHistory, ...helpCommands];
+                setCommandsHistory(operand);
+                break;
             case "clear":
-                console.log("jest");
                 setCommandsHistory([]);
                 break;
             default:
