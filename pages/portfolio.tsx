@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import { PortfolioConsoleCommandDisplay, PortfolioConsoleCommandInput, PortfolioConsoleCommandLineWrapper, PortfolioConsoleContainer, PortfolioConsoleLine, PortfolioHeader } from "styled/components/portfolio/portfolio";
+import { PortfolioConsoleCommandDisplay, PortfolioConsoleCommandInput, 
+    PortfolioConsoleCommandLineWrapper, PortfolioConsoleContainer, 
+    PortfolioConsoleLine, PortfolioHeader } from "styled/components/portfolio/portfolio";
 import { useMediaQuery } from "@mui/material";
+import { checkIfTheCommandExists, processTheLatestCommand } from "util/portfolio";
 
 const Portfolio:NextPage = () => {
 
@@ -20,6 +23,14 @@ const Portfolio:NextPage = () => {
 
     const processTheCommand = (key: string):void => {
         if(key === "Enter" && nextCommand.length > 0){
+            const commandsOperand:string[] = [...commands];
+            const commandOperand:string = "> " + nextCommand;
+            commandsOperand.push(commandOperand);
+            if(!checkIfTheCommandExists(nextCommand)){
+                commandsOperand.push(`Command ${nextCommand.split(" ")[0]} not found`);
+            }
+            setCommands(commandsOperand);
+            processTheLatestCommand(nextCommand, commands, setCommands);
             setNextCommand("");
         }
     };
