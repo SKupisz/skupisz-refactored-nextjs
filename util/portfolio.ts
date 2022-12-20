@@ -71,13 +71,14 @@ export const processTheLatestCommand = (
                             });
                             setCommandsHistory(skillsOperand);
                             break;
-                        case "--career":
+                        case "--projects":
                             const careerOperand = [...commandsHistory];
                             Data.projects.forEach((elem, index) => {
-                                careerOperand.push(elem.projectName);
+                                careerOperand.push(`${index+1}) ${elem.projectName}`);
                                 careerOperand.push(`Role - ${elem.projectRole}`);
                                 careerOperand.push(elem.projectDescription);
                                 careerOperand.push(`Made with ${elem.projectTechnologies}`);
+                                careerOperand.push("");
                             });
                             setCommandsHistory(careerOperand);
                             break;

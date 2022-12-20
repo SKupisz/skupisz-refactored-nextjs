@@ -79,7 +79,10 @@ const Portfolio:NextPage = () => {
         }}>
             <PortfolioConsoleCommandDisplay className="block-center" ref={commandsRef}>
                 {
-                    commands.map((command: string) => <PortfolioConsoleLine className="block-center">
+                    commands.map((command: string) => <PortfolioConsoleLine className="block-center"
+                        style={{
+                            marginBottom: command.length === 0 ? "6vh" : ""
+                        }}>
                         {command}
                     </PortfolioConsoleLine>)
                 }

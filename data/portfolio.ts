@@ -26,7 +26,7 @@ export const Commands:{
         command: "show",
         description: "By using this command with a specific flag, you can my skills (--skills) or my current programming history (--career)",
         hasArgument: true,
-        flags: ["--skills", "--career"]
+        flags: ["--skills", "--projects"]
     },
 ];
 
@@ -36,7 +36,13 @@ export const Data = {
             projectName: "Sparkledge",
             projectRole: "Founder and President, main front-end developer",
             projectTechnologies: "ReactJS, Typescript, Axios",
-            projectDescription: "A notes hub produced in cooperation with the Student Research Group of Warsaw University of Technology"
+            projectDescription: "A notes hub produced in cooperation with the Student Research Group of Warsaw University of Technology",
+        },
+        {
+            projectName: "LTD Softway business calculator",
+            projectRole: "Main fullstack developer",
+            projectTechnologies: "ReactJS, NextJS, Typescript, NestJS, Axios",
+            projectDescription: "A business calculator made for optimizing the LTD Softway company clients' businesses",
         }
     ],
     skills: [
