@@ -53,7 +53,7 @@ export const PortfolioConsoleContainer = styled(motion.section)`
     }
 `;
 
-export const PortfolioConsoleCommandDisplay = styled.section`
+export const PortfolioConsoleCommandDisplay = styled.div`
     width: calc(100% - 10px);
     height: calc(38vh - 10px);
     padding: 5px;
@@ -64,7 +64,7 @@ export const PortfolioConsoleCommandDisplay = styled.section`
     }
 `;
 
-export const PortfolioConsoleCommandLineWrapper = styled.section`
+export const PortfolioConsoleCommandLineWrapper = styled.div`
     width: calc(100% - 10px);
     height: calc(10vh - 10px);
     padding: 5px;
@@ -76,7 +76,7 @@ export const PortfolioConsoleLine = styled.div`
     text-shadow: ${(props) => props.theme.textShadow};
     font-size: 1em;
     margin-bottom: 1vh;
-    color: ${(props) => props.theme.colors.consoleColor};
+    color: inherit;
     text-align: left;
     text-indent: 0.5em;
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { PortfolioConsoleCommandDisplay, PortfolioConsoleCommandInput, 
@@ -6,12 +6,15 @@ import { PortfolioConsoleCommandDisplay, PortfolioConsoleCommandInput,
     PortfolioConsoleLine, PortfolioHeader } from "styled/components/portfolio/portfolio";
 import { useMediaQuery } from "@mui/material";
 import { checkIfTheCommandExists, processTheLatestCommand } from "util/portfolio";
+import { DarkTheme } from "styled/main";
 
 const Portfolio:NextPage = () => {
 
     const isBiggerThanLaptop:boolean = useMediaQuery("(min-width: 1024px)");
     const isBiggerThanTablet:boolean = useMediaQuery("(min-width: 768px)");
     const isBiggerThanPhone:boolean = useMediaQuery("(min-width: 425px)");
+
+    const commandsRef = React.useRef<HTMLDivElement>(null);
 
     const [commands, setCommands] = useState<string[]>([
         "> Portfolio console...",
@@ -20,6 +23,7 @@ const Portfolio:NextPage = () => {
     ]);
 
     const [nextCommand, setNextCommand] = useState<string>("");
+    const [consoleColor, setConsoleColor] = useState<string>(DarkTheme.colors.consoleColor);
 
     const processTheCommand = (key: string):void => {
         if(key === "Enter" && nextCommand.length > 0){
@@ -30,10 +34,22 @@ const Portfolio:NextPage = () => {
                 commandsOperand.push(`Command ${nextCommand.split(" ")[0]} not found`);
             }
             setCommands(commandsOperand);
-            processTheLatestCommand(nextCommand, commands, setCommands);
+            processTheLatestCommand(nextCommand, commandsOperand, setCommands, consoleColor, setConsoleColor);
             setNextCommand("");
         }
     };
+
+    const scrollToBottom = () => {
+        commandsRef.current?.scrollTo({
+            top: commandsRef.current?.scrollHeight,
+            left: 0,
+            behavior: "smooth"
+        })
+    }
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [commands])
 
     return <>
         <Head>
@@ -58,8 +74,10 @@ const Portfolio:NextPage = () => {
         }} transition={{
             duration: 0.25,
             delay: 0.4
+        }} style={{
+            color: consoleColor,
         }}>
-            <PortfolioConsoleCommandDisplay className="block-center">
+            <PortfolioConsoleCommandDisplay className="block-center" ref={commandsRef}>
                 {
                     commands.map((command: string) => <PortfolioConsoleLine className="block-center">
                         {command}
