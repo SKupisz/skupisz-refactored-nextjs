@@ -16,6 +16,7 @@ export const processTheLatestCommand = (
     setCommandsHistory: (newState: string[]) => void,
     currentColor: string,
     setConsoleColor: (newColor: string) => void,
+    setExitRedirectTarget: (newPage: string) => void,
 ):void => {
     if(checkIfTheCommandExists(command)){
         const commandParts:string[] = command.split(" ");
@@ -74,11 +75,11 @@ export const processTheLatestCommand = (
                         case "--projects":
                             const projectsOperand = [...commandsHistory];
                             Data.projects.forEach((elem, index) => {
-                                careerOperand.push(`${index+1}) ${elem.projectName}`);
-                                careerOperand.push(`Role - ${elem.projectRole}`);
-                                careerOperand.push(elem.projectDescription);
-                                careerOperand.push(`Made with ${elem.projectTechnologies}`);
-                                careerOperand.push("");
+                                projectsOperand.push(`${index+1}) ${elem.projectName}`);
+                                projectsOperand.push(`Role - ${elem.projectRole}`);
+                                projectsOperand.push(elem.projectDescription);
+                                projectsOperand.push(`Made with ${elem.projectTechnologies}`);
+                                projectsOperand.push("");
                             });
                             setCommandsHistory(projectsOperand);
                             break;
@@ -102,6 +103,12 @@ export const processTheLatestCommand = (
                     const showErrorOperand = [...commandsHistory, "Missing a correct parameter or a flag"];
                     setCommandsHistory(showErrorOperand);
                 }
+                break;
+            case "exit":
+                const exitOptions = [...commandsHistory];
+                exitOptions.push("Exit command done");
+                setCommandsHistory(exitOptions);
+                setExitRedirectTarget(commandParts.length >= 2 ? commandParts[1] : "/");
                 break;
             default:
                 break;

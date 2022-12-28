@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useMediaQuery } from "@mui/material";
+
+
 import { PortfolioConsoleCommandDisplay, PortfolioConsoleCommandInput, 
     PortfolioConsoleCommandLineWrapper, PortfolioConsoleContainer, 
     PortfolioConsoleLine, PortfolioHeader } from "styled/components/portfolio/portfolio";
-import { useMediaQuery } from "@mui/material";
-import { checkIfTheCommandExists, processTheLatestCommand } from "util/portfolio";
 import { DarkTheme } from "styled/main";
+
+import { checkIfTheCommandExists, processTheLatestCommand } from "util/portfolio";
 
 const Portfolio:NextPage = () => {
 
@@ -15,6 +19,7 @@ const Portfolio:NextPage = () => {
     const isBiggerThanPhone:boolean = useMediaQuery("(min-width: 425px)");
 
     const commandsRef = React.useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     const [commands, setCommands] = useState<string[]>([
         "> Portfolio console...",
@@ -24,6 +29,7 @@ const Portfolio:NextPage = () => {
 
     const [nextCommand, setNextCommand] = useState<string>("");
     const [consoleColor, setConsoleColor] = useState<string>(DarkTheme.colors.consoleColor);
+    const [exitRedirectTarget, setExitRedirectTarget] = useState<string>("");
 
     const processTheCommand = (key: string):void => {
         if(key === "Enter" && nextCommand.length > 0){
@@ -34,7 +40,7 @@ const Portfolio:NextPage = () => {
                 commandsOperand.push(`Command ${nextCommand.split(" ")[0]} not found`);
             }
             setCommands(commandsOperand);
-            processTheLatestCommand(nextCommand, commandsOperand, setCommands, consoleColor, setConsoleColor);
+            processTheLatestCommand(nextCommand, commandsOperand, setCommands, consoleColor, setConsoleColor, setExitRedirectTarget);
             setNextCommand("");
         }
     };
@@ -45,11 +51,17 @@ const Portfolio:NextPage = () => {
             left: 0,
             behavior: "smooth"
         })
-    }
+    };
 
     useEffect(() => {
         scrollToBottom();
-    }, [commands])
+    }, [commands]);
+
+    useEffect(() => {
+        if(exitRedirectTarget.length > 0 ){
+            router.push(exitRedirectTarget);
+        }
+    }, [exitRedirectTarget]);
 
     return <>
         <Head>

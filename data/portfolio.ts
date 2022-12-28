@@ -30,8 +30,8 @@ export const Commands:{
     },
     {
         command: "exit",
-        description: "shows exit options",
-        hasArgument: false,
+        description: "exits to the given subpage (main, blog or contact) or to the main page defaultly",
+        hasArgument: true,
         flags: [],
     },
 ];
