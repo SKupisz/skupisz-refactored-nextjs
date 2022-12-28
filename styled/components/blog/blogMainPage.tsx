@@ -26,9 +26,8 @@ export const BlogWrapper = styled.section`
 `;
 
 export const BlogCard = styled.div`
-    width: calc(90% - 30px);
-    height: calc(50vh - 30px);
-    padding: 10px;
+    width: calc(90% - 10px);
+    height: calc(50vh - 10px);
     border-radius: 10px;
     text-align: center;
     box-shadow: ${(props) => props.theme.textShadow};
@@ -56,8 +55,16 @@ export const BlogCard = styled.div`
     }
 
     @media screen and (min-width: 1024px){
-        width: calc(40% - 30px);
+        width: calc(45% - 30px);
     }
+`;
+
+export const BlogCardFilter = styled.div`
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(25,25,25,.8);
 `;
 
 export const BlogCardHeader = styled.header`
