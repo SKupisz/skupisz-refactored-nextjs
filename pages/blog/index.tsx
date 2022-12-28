@@ -4,17 +4,14 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 
 import { BlogCard, BlogCardDescription, BlogCardFilter, BlogCardHeader, BlogHeader, BlogWrapper } from "styled/components/blog/blogMainPage";
-import blogArticles from "data/blog";
+import blogArticles, { blogType } from "data/blog";
 import path from "path";
 
 interface Props{
-    articles: object[]
+    articles: blogType[]
 }
 
-const Blog:NextPage<Props> = (props) => {
-
-    const { articles } = props;
-
+const Blog:NextPage<Props> = ({articles}) => {
     return <>
         <Head>
             <title>Blog - Simon G. Kupisz</title>
@@ -40,7 +37,7 @@ const Blog:NextPage<Props> = (props) => {
 
 export const getStaticProps:GetStaticProps = async() => {
 
-    const articlesForShow = [...blogArticles];
+    const articlesForShow:blogType[] = [...blogArticles];
     articlesForShow.forEach((elem) => {
         if(elem.imagePath.indexOf("assets") === -1) elem.imagePath = "assets/" + elem.imagePath;
     });

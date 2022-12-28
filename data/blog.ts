@@ -1,10 +1,12 @@
-const blogArticles:{
+export type blogType = {
     id: string,
     title: string,
     description: string,
     date: string,
     imagePath: string,
-}[] = [
+};
+
+const blogArticles:blogType[] = [
     {
         id: "laziness-pays-back",
         title: "Laziness pays back – shortly about lazy loading",

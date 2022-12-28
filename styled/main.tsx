@@ -37,7 +37,7 @@ export const DarkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
     body {
-        background: ${(props) => props.theme.mainTheme};
+        background: #001111;
     }
 
     .block-center{
