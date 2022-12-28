@@ -17,20 +17,58 @@ export const Commands:{
         flags: []
     },
     {
+        command: "show",
+        description: "By using this command with a specific flag, you can my skills (--skills), the projects I did (--projects) or my current programming history (--career)",
+        hasArgument: true,
+        flags: ["--skills", "--projects", "--career"]
+    },
+    {
         command: "chcc",
         description: "changes console text's color to the hex code or the RGB given or resets is with --reset. To know which color formats are allowed to use, type chcc --list",
         hasArgument: true,
         flags: ["--reset","--list"]
     },
     {
-        command: "show",
-        description: "By using this command with a specific flag, you can my skills (--skills) or my current programming history (--career)",
-        hasArgument: true,
-        flags: ["--skills", "--projects"]
+        command: "exit",
+        description: "shows exit options",
+        hasArgument: false,
+        flags: [],
     },
 ];
 
 export const Data = {
+    career: [
+        {
+            companyName: "Sparkledge app",
+            startingDate: "2022",
+            endingDate: "",
+            role: "President of the project, frontend developer",
+        },
+        {
+            companyName: "Koło Naukowe Informatyków PW - Student IT Research Group of Warsaw University of Technology",
+            startingDate: "2021",
+            endingDate: "",
+            role: "Member and Vice President",
+        },
+        {
+            companyName: "LTD Softway",
+            startingDate: "2021",
+            endingDate: "",
+            role: "IT & SEO support",
+        },
+        {
+            companyName: "Hackclub association",
+            startingDate: "2019",
+            endingDate: "",
+            role: "Co-leader",
+        },
+        {
+            companyName: "SGK-news",
+            startingDate: "2019",
+            endingDate: "2021",
+            role: "President of the project, fullstack dev",
+        },
+    ],
     projects: [
         {
             projectName: "Sparkledge",

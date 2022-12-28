@@ -72,7 +72,7 @@ export const processTheLatestCommand = (
                             setCommandsHistory(skillsOperand);
                             break;
                         case "--projects":
-                            const careerOperand = [...commandsHistory];
+                            const projectsOperand = [...commandsHistory];
                             Data.projects.forEach((elem, index) => {
                                 careerOperand.push(`${index+1}) ${elem.projectName}`);
                                 careerOperand.push(`Role - ${elem.projectRole}`);
@@ -80,9 +80,21 @@ export const processTheLatestCommand = (
                                 careerOperand.push(`Made with ${elem.projectTechnologies}`);
                                 careerOperand.push("");
                             });
+                            setCommandsHistory(projectsOperand);
+                            break;
+                        case "--career":
+                            const careerOperand = [...commandsHistory];
+                            Data.career.forEach((elem, index) => {
+                                careerOperand.push(`${index+1}) ${elem.companyName}`);
+                                careerOperand.push(`Role - ${elem.role}`);
+                                careerOperand.push(`${elem.startingDate} - ${elem.endingDate === "" ? "Today" : elem.endingDate}`);
+                                careerOperand.push("");
+                            });
                             setCommandsHistory(careerOperand);
                             break;
                         default: 
+                            const commandErrorOperand = [...commandsHistory, "Parameter or a flag not recognized"];
+                            setCommandsHistory(commandErrorOperand);
                             break;
                     }
                 }
