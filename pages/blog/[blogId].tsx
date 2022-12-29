@@ -92,11 +92,11 @@ export const getStaticProps:GetStaticProps = async(context) => {
 
 export const getStaticPaths:GetStaticPaths = async() => {
     return{
-        paths: [{
+        paths: blogArticles.map((elem) => ({
             params: {
-                blogId: "laziness-pays-back"
+                blogId: elem.id
             }
-        }],
+        })),
         fallback: false,
     }
 }

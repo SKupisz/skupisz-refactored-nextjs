@@ -22,7 +22,7 @@ const blogArticles:blogType[] = [
         imagePath: "html-code-background.webp",
     },
     {
-        id: "Back-to-the-past",
+        id: "back-to-the-past",
         title: "Back to the past – shortly about C",
         description: "Day by day, we witness some programming languages becoming obsolete. Generally, these are the languages that have been used for a while, like twenty years or even more...",
         date: "14th of December 2021",
