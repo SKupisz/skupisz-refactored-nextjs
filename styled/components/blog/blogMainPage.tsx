@@ -23,6 +23,11 @@ export const BlogWrapper = styled.section`
     font-family: ${(props) => props.theme.fonts.regular};
     color: ${(props) => props.theme.colors.regularDarker};
     text-shadow: ${(props) => props.theme.textShadow};
+
+    & > a {
+        color: inherit;
+        text-decoration: none;
+    }
 `;
 
 export const BlogCard = styled.div`

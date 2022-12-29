@@ -36,7 +36,10 @@ const BlogPost:NextPage<BlogPostInterface> = (props) => {
                 </BlogImageTitle>
             </BlogImageContainer> : elem.type === "blogLinking" ? <BlogLinksContainer className="block-center">
                 {
-                    elem.links.map((link) => <Link href={link.to}>
+                    elem.links.map((link:{
+                        to: string,
+                        content: string
+                    }) => <Link href={link.to}>
                         <BlogLink className="block-center">
                             {link.content}
                         </BlogLink>

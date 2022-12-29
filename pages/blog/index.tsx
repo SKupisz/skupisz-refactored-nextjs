@@ -3,9 +3,11 @@ import { GetStaticPaths, NextPage } from "next";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { BlogCard, BlogCardDescription, BlogCardFilter, BlogCardHeader, BlogHeader, BlogWrapper } from "styled/components/blog/blogMainPage";
+import { BlogCard, BlogCardDescription, BlogCardFilter, 
+    BlogCardHeader, BlogHeader, BlogWrapper } from "styled/components/blog/blogMainPage";
 import blogArticles, { blogType } from "data/blog";
 import path from "path";
+import Link from "next/link";
 
 interface Props{
     articles: blogType[]
@@ -20,17 +22,19 @@ const Blog:NextPage<Props> = ({articles}) => {
             Blog
         </BlogHeader>
         <BlogWrapper className="block-center">
-            {articles.map((elem) => <BlogCard style={{backgroundImage: `url(${elem.imagePath})`,
-            backgroundPositionX: "center", backgroundSize: "cover"}}>
-                <BlogCardFilter className="block-center">
-                    <BlogCardHeader className="block-center">
-                        {elem.title}
-                    </BlogCardHeader>
-                    <BlogCardDescription className="block-center">
-                        {elem.description}
-                    </BlogCardDescription>
-                </BlogCardFilter>
-            </BlogCard>)}
+            {articles.map((elem) => <Link href={`/blog/${elem.id}`}>
+                <BlogCard style={{backgroundImage: `url(${elem.imagePath})`,
+                backgroundPositionX: "center", backgroundSize: "cover"}}>
+                    <BlogCardFilter className="block-center">
+                        <BlogCardHeader className="block-center">
+                            {elem.title}
+                        </BlogCardHeader>
+                        <BlogCardDescription className="block-center">
+                            {elem.description}
+                        </BlogCardDescription>
+                    </BlogCardFilter>
+                </BlogCard>
+            </Link>)}
         </BlogWrapper>
     </>
 };
