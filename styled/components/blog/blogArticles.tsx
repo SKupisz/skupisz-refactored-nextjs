@@ -103,3 +103,51 @@ export const BlogImageTitle = styled.header`
         font-size: 1.4em;
     }
 `;
+
+export const BlogLinksContainer = styled.section`
+    width: calc(90% - 20px);
+    padding: 10px;
+    text-align: center;
+    font-family: ${(props) => props.theme.fonts.regular};
+    color: ${(props) => props.theme.colors.regularDarker};
+
+    & > a {
+        text-decoration: none;
+    }
+
+    @media screen and (min-width: 1024px){
+        width: calc(70% - 20px);
+    }
+`;
+
+export const BlogLink = styled.div`
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(25,25,25,.5);
+    margin-bottom: 2vh;
+    color: ${(props) => props.theme.colors.regularDarker};
+    font-size: 1.05em;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &:hover{
+        filter: brightness(70%);
+    }
+
+    @media screen and (min-width: 425px){
+        font-size: 1.2em;
+    }
+
+    @media screen and (min-width: 768px){
+        font-size: 1.5em;
+    }
+
+    @media screen and (min-width: 1024px){
+        width: calc(90% - 20px);
+        font-size: 1.7em;
+    }
+`;

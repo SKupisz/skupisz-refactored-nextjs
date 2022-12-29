@@ -2,8 +2,9 @@ import blogArticles from "data/blog";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import path from "path";
-import { BlogArticleHeader, BlogArticleParagraph, BlogImageContainer, BlogImageTitle, BlogImageWrapper } from "styled/components/blog/blogArticles";
+import { BlogArticleHeader, BlogArticleParagraph, BlogImageContainer, BlogImageTitle, BlogImageWrapper, BlogLink, BlogLinksContainer } from "styled/components/blog/blogArticles";
 
 interface BlogPostInterface{
     title: string,
@@ -33,7 +34,15 @@ const BlogPost:NextPage<BlogPostInterface> = (props) => {
                 <BlogImageTitle className="block-center">
                     {elem.title}
                 </BlogImageTitle>
-            </BlogImageContainer>: null)
+            </BlogImageContainer> : elem.type === "blogLinking" ? <BlogLinksContainer className="block-center">
+                {
+                    elem.links.map((link) => <Link href={link.to}>
+                        <BlogLink className="block-center">
+                            {link.content}
+                        </BlogLink>
+                    </Link>)
+                }
+            </BlogLinksContainer> : null)
         }
     </>
 };
