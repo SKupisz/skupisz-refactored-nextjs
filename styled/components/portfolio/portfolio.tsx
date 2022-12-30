@@ -59,6 +59,19 @@ export const PortfolioConsoleCommandDisplay = styled.div`
     padding: 5px;
     overflow-Y: scroll;
 
+    ::-webkit-scrollbar{
+        width: 10px;
+        background: ${(props) => props.theme.consoleBackground};
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: ${(props) => props.theme.colors.consoleColor};
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        filter: brightness(70%);
+    }
+
     @media screen and (min-width: 425px){
         height: calc(48vh - 10px);
     }

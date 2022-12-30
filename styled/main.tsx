@@ -45,7 +45,21 @@ export const GlobalStyles = createGlobalStyle`
         margin-left: auto;
         margin-right: auto;
     }
-`
+
+    ::-webkit-scrollbar{
+        width: 10px;
+        background: #252525;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: #207A9A;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        filter: brightness(70%);
+    }
+`;
+
 export const ContentContainer = styled.main`
     position: relative;
     top: 15vh;
