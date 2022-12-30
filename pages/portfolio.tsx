@@ -27,21 +27,51 @@ const Portfolio:NextPage = () => {
         "> For more informations type help..."
     ]);
 
+    const [previousCommands, setPreviousCommands] = useState<string[]>([]);
+    const [previousCommandPointer, setPreviousCommandPointer] = useState<number>([]);
+
     const [nextCommand, setNextCommand] = useState<string>("");
     const [consoleColor, setConsoleColor] = useState<string>(DarkTheme.colors.consoleColor);
     const [exitRedirectTarget, setExitRedirectTarget] = useState<string>("");
 
     const processTheCommand = (key: string):void => {
-        if(key === "Enter" && nextCommand.length > 0){
-            const commandsOperand:string[] = [...commands];
-            const commandOperand:string = "> " + nextCommand;
-            commandsOperand.push(commandOperand);
-            if(!checkIfTheCommandExists(nextCommand)){
-                commandsOperand.push(`Command ${nextCommand.split(" ")[0]} not found`);
-            }
-            setCommands(commandsOperand);
-            processTheLatestCommand(nextCommand, commandsOperand, setCommands, consoleColor, setConsoleColor, setExitRedirectTarget);
-            setNextCommand("");
+        switch(key){
+            case "Enter":
+                if(nextCommand.length > 0){
+                    const commandsOperand:string[] = [...commands];
+                    const commandOperand:string = "> " + nextCommand;
+                    commandsOperand.push(commandOperand);
+                    if(!checkIfTheCommandExists(nextCommand)){
+                        commandsOperand.push(`Command ${nextCommand.split(" ")[0]} not found`);
+                    }
+                    setCommands(commandsOperand);
+        
+                    const previousCommandsOperand = [...previousCommands];
+                    previousCommandsOperand.push(nextCommand);
+                    setPreviousCommands(previousCommandsOperand);
+                    setPreviousCommandPointer(previousCommandsOperand.length);
+        
+                    processTheLatestCommand(nextCommand, commandsOperand, setCommands, consoleColor, setConsoleColor, setExitRedirectTarget);
+                    setNextCommand("");
+                }
+                break;
+            case "ArrowUp":
+                if(previousCommandPointer-1 >= 0){
+                    setNextCommand(previousCommands[previousCommandPointer-1]);
+                    setPreviousCommandPointer(previousCommandPointer-1);
+                }
+                break;
+            case "ArrowDown":
+                if(previousCommandPointer+1 < previousCommands.length){
+                    setNextCommand(previousCommands[previousCommandPointer+1]);
+                    setPreviousCommandPointer(previousCommandPointer+1);
+                }
+                else{
+                    setNextCommand("");
+                }
+                break;
+            default:
+                break;
         }
     };
 
