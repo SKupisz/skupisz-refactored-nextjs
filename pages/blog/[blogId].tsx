@@ -1,10 +1,11 @@
-import blogArticles from "data/blog";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
+
 import { BlogArticleHeader, BlogArticleParagraph, BlogImageContainer, BlogImageTitle, BlogImageWrapper, BlogLink, BlogLinksContainer } from "styled/components/blog/blogArticles";
+
+import blogArticles from "data/blog";
 
 interface BlogPostInterface{
     title: string,
