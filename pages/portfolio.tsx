@@ -28,7 +28,7 @@ const Portfolio:NextPage = () => {
     ]);
 
     const [previousCommands, setPreviousCommands] = useState<string[]>([]);
-    const [previousCommandPointer, setPreviousCommandPointer] = useState<number>([]);
+    const [previousCommandPointer, setPreviousCommandPointer] = useState<number>(0);
 
     const [nextCommand, setNextCommand] = useState<string>("");
     const [consoleColor, setConsoleColor] = useState<string>(DarkTheme.colors.consoleColor);
@@ -65,9 +65,6 @@ const Portfolio:NextPage = () => {
                 if(previousCommandPointer+1 < previousCommands.length){
                     setNextCommand(previousCommands[previousCommandPointer+1]);
                     setPreviousCommandPointer(previousCommandPointer+1);
-                }
-                else{
-                    setNextCommand("");
                 }
                 break;
             default:
