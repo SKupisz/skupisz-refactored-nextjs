@@ -67,7 +67,7 @@ export const processTheLatestCommand = (
                             Data.skills.forEach((elem, index) => {
                                 skillsOperand.push(`${index+1}) ${elem.name}`);
                                 elem.technologies.forEach((elem) => {
-                                    skillsOperand.push(`${elem.technologyName} - ${elem.technologySkill}`);
+                                    skillsOperand.push(`- ${elem.technologyName} - ${elem.technologySkill}`);
                                 })
                             });
                             setCommandsHistory(skillsOperand);
@@ -85,8 +85,9 @@ export const processTheLatestCommand = (
                             break;
                         case "--career":
                             const careerOperand = [...commandsHistory];
-                            Data.career.forEach((elem, index) => {
-                                careerOperand.push(`${index+1}) ${elem.companyName}`);
+                            const careerData = [...Data.career].reverse();
+                            careerData.forEach((elem, index) => {
+                                careerOperand.push(`${Data.career.length - index}) ${elem.companyName}`);
                                 careerOperand.push(`Role - ${elem.role}`);
                                 careerOperand.push(`${elem.startingDate} - ${elem.endingDate === "" ? "Today" : elem.endingDate}`);
                                 careerOperand.push("");

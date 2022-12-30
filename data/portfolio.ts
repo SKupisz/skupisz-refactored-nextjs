@@ -85,7 +85,7 @@ export const Data = {
     ],
     skills: [
         {
-            name: "Frontend web-development",
+            name: "Web development",
             technologies: [
                 {
                     technologyName: "Javascript",
@@ -95,6 +95,11 @@ export const Data = {
                     technologyName: "Typescript",
                     technologySkill: "mid"
                 },
+            ]
+        },
+        {
+            name: "Frontend web-development",
+            technologies: [
                 {
                     technologyName: "ReactJS",
                     technologySkill: "mid-advanced"
@@ -110,6 +115,58 @@ export const Data = {
                 {
                     technologyName: "HTML",
                     technologySkill: "mid-advanced"
+                }
+            ]
+        },
+        {
+            name: "Backend web-development",
+            technologies: [
+                {
+                    technologyName: "NodeJS",
+                    technologySkill: "junior"
+                },
+                {
+                    technologyName: "NestJS",
+                    technologySkill: "junior"
+                },
+                {
+                    technologyName: "PHP",
+                    technologySkill: "junior"
+                }
+            ]
+        },
+        {
+            name: "Mobile development",
+            technologies: [
+                {
+                    technologyName: "React Native",
+                    technologySkill: "junior"
+                }
+            ]
+        },
+        {
+            name: "Databases",
+            technologies: [
+                {
+                    technologyName: "MySQL",
+                    technologySkill: "junior"
+                },
+                {
+                    technologyName: "MongoDB",
+                    technologySkill: "junior"
+                }
+            ]
+        },
+        {
+            name: "Other languages and technologies",
+            technologies: [
+                {
+                    technologyName: "C/C++",
+                    technologySkill: "junior-mid"
+                },
+                {
+                    technologyName: "C#",
+                    technologySkill: "junior"
                 }
             ]
         }
