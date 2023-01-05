@@ -29,12 +29,12 @@ const Navbar:React.FC = () => {
             height: isBiggerThanTablet ? "fit-content" : isOpened ? ["10vh","30vh"] : ["30vh","10vh"]
         }}>
             <Link href="/">
-                <NavbarElem>
+                <NavbarElem onClick={() => toggleIsOpened((opened:boolean) => !opened)}>
                     Main
                 </NavbarElem>
             </Link>
             <Link href="/portfolio">
-                <NavbarElem>
+                <NavbarElem onClick={() => toggleIsOpened((opened:boolean) => !opened)}>
                     Portfolio
                 </NavbarElem>
             </Link>
@@ -46,18 +46,18 @@ const Navbar:React.FC = () => {
             height: isBiggerThanTablet ? "fit-content" : isOpened ? ["10vh","30vh"] : ["30vh","10vh"]
         }}>
             <Link href="/contact">
-                <NavbarElem>
+                <NavbarElem onClick={() => toggleIsOpened((opened:boolean) => !opened)}>
                     Contact
                 </NavbarElem>
             </Link>
             <Link href="/blog">
-                <NavbarElem>
+                <NavbarElem onClick={() => toggleIsOpened((opened:boolean) => !opened)}>
                     Blog
                 </NavbarElem>
             </Link>
         </NavbarSection>
         {
-            !isBiggerThanTablet ? <NavbarClosingElem onClick={() => toggleIsOpened(!isOpened)}>
+            !isBiggerThanTablet ? <NavbarClosingElem onClick={() => toggleIsOpened((opened:boolean) => !opened)}>
                 {isOpened ? <CloseIcon style={{
                     color: "inherit",
                     fontSize: "inherit"
