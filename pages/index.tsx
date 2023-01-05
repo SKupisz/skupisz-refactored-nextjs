@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import { useMediaQuery } from '@mui/material';
 
 import { WelcomeDescriptionContent, WelcomeDescriptionHeader, WelcomeGoDownButton, WelcomeHeader, WelcomePageSegment, WelcomeShortDescriptionWrapper } from 'styled/components/welcome/welcome'
 import styles from '../styles/Home.module.css'
@@ -9,8 +10,12 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
 
   const scrollButtonRef = React.createRef<HTMLButtonElement>();
-
   const scrollToNextSection = () => window.scrollBy(0, 90 * (window.innerHeight / 100));
+
+  const isBiggerThanTablet:boolean = useMediaQuery("(min-width: 768px)");
+
+  const descriptionContent:string[] = ["My name is Szymon Kupisz. I'm studying Computer Science and Information Systems at the Faculty of Mathematics and Information Sciences of the Warsaw University of Technology.",
+    "I'm also a vice-president of the Student IT Research group of Warsaw University of Technology, which is KNI, and a president of it's flag product, the Sparkledge application."];
 
   return (
     <div>
@@ -59,9 +64,13 @@ export default function Home() {
         <WelcomeDescriptionHeader className="block-center">
           Who am I?
         </WelcomeDescriptionHeader>
-        <WelcomeDescriptionContent className="block-center">
-          My name is Szymon Kupisz. I'm studying Computer Science and Information Systems at the Faculty of Mathematics and Information Sciences of the Warsaw University of Technology. I'm also a vice-president of the Student IT Research group of Warsaw University of Technology, which is KNI, and a president of it's flag product, the Sparkledge application.
-        </WelcomeDescriptionContent>
+        {isBiggerThanTablet ? <WelcomeDescriptionContent className="block-center">
+          {`${descriptionContent[0]} ${descriptionContent[1]}`}
+        </WelcomeDescriptionContent> : <>
+            {descriptionContent.map((elem: string) => <WelcomeDescriptionContent className="block-center">
+              {elem}
+            </WelcomeDescriptionContent>)}
+        </>}
         <WelcomeDescriptionContent className="block-center">
           Since I can remember, my life has been strongly bonded with programming. I started learning its concepts and wonders when I was 9 years old. Since that time, firstly with the help of my father, and then by myself, I've gone into the endless journey through the world of programming.
         </WelcomeDescriptionContent>
