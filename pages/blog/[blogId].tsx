@@ -30,7 +30,8 @@ const BlogPost:NextPage<BlogPostInterface> = (props) => {
                 <BlogImageWrapper className="block-center">
                     <Image alt={elem.title} src={`/assets/${elem.src}`} fill style={{
                         objectFit: "contain",
-                    }} className="block-center"/> 
+                    }} className="block-center"
+                    loading="lazy"/> 
                 </BlogImageWrapper>
                 <BlogImageTitle className="block-center">
                     {elem.title}

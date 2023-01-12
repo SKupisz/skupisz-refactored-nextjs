@@ -3,7 +3,7 @@ import { GetStaticPaths, NextPage } from "next";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { BlogCard, BlogCardDescription, BlogCardFilter, 
+import { BlogCard, BlogCardDate, BlogCardDescription, BlogCardFilter, 
     BlogCardHeader, BlogHeader, BlogWrapper } from "styled/components/blog/blogMainPage";
 import blogArticles, { blogType } from "data/blog";
 import path from "path";
@@ -32,6 +32,9 @@ const Blog:NextPage<Props> = ({articles}) => {
                         <BlogCardDescription className="block-center">
                             {elem.description}
                         </BlogCardDescription>
+                        <BlogCardDate className="block-center">
+                            {elem.date}
+                        </BlogCardDate>
                     </BlogCardFilter>
                 </BlogCard>
             </Link>)}

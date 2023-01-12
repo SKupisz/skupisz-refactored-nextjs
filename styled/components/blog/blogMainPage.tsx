@@ -32,7 +32,7 @@ export const BlogWrapper = styled.section`
 
 export const BlogCard = styled.div`
     width: calc(90% - 10px);
-    height: calc(50vh - 10px);
+    height: calc(60vh - 10px);
     border-radius: 10px;
     text-align: center;
     box-shadow: ${(props) => props.theme.textShadow};
@@ -42,6 +42,7 @@ export const BlogCard = styled.div`
     margin: 5px;
     transition: filter 0.4s;
     cursor: pointer;
+    background: rgba(240,240,240,.2);
 
     &:hover{
         filter: brightness(70%);
@@ -93,6 +94,7 @@ export const BlogCardHeader = styled.header`
 
 export const BlogCardDescription = styled.div`
     width: calc(95% - 10px);
+    min-height: calc(30vh - 10px);
     padding: 5px;
     text-align: center;
     font-size: 1.1em;
@@ -108,7 +110,15 @@ export const BlogCardDescription = styled.div`
     }
 
     @media screen and (min-width: 1440px){
-        width: calc(70% - 10px);
+        width: calc(80% - 10px);
         font-size: 1.4em;
     }
+`;
+
+export const BlogCardDate = styled.span`
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.9em;
+    letter-spacing: 0.04em;
+    color: inherit;
 `;
