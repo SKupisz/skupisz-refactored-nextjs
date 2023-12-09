@@ -39,9 +39,15 @@ export const Commands:{
 export const Data = {
     career: [
         {
+            companyName: "Microsoft Poland",
+            startingDate: "2023",
+            endingDate: "",
+            role: "Frontend Engineer vendor",
+        },
+        {
             companyName: "Sparkledge app",
             startingDate: "2022",
-            endingDate: "",
+            endingDate: "2023",
             role: "President of the project, frontend developer",
         },
         {
@@ -115,6 +121,15 @@ export const Data = {
                 {
                     technologyName: "HTML",
                     technologySkill: "mid-advanced"
+                }, {
+                    technologyName: "Jest",
+                    technologySkill: "mid"
+                }, {
+                    technologyName: "Angular",
+                    technologySkill: "junior"
+                }, {
+                    technologyName: "Testcafe",
+                    technologySkill: "junior-mid"
                 }
             ]
         },
@@ -154,6 +169,10 @@ export const Data = {
                 {
                     technologyName: "MongoDB",
                     technologySkill: "junior"
+                },
+                {
+                    technologyName: "KQL",
+                    technologySkill: "junior-mid",
                 }
             ]
         },
